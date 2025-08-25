@@ -9,17 +9,18 @@ namespace Sufficit.Gateway.Wavoip
     {
         public static IServiceCollection AddSufficitGatewayWavoip(this IServiceCollection services)
         {
-            services.AddOptions<GatewayOptions>();
-
-            var provider = services.BuildServiceProvider();
+            var provider = services.BuildServiceProvider(false);
             var configuration = provider.GetRequiredService<IConfiguration>();
+            return services.AddSufficitGatewayWavoip(configuration);
+        }
+
+        public static IServiceCollection AddSufficitGatewayWavoip(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddOptions<GatewayOptions>();
 
             // Definindo o local da configuração global
             // Importante ser dessa forma para o sistema acompanhar as mudanças no arquivo de configuração em tempo real 
             services.Configure<GatewayOptions>(configuration.GetSection(GatewayOptions.SECTIONNAME));
-
-            // Capturando para uso local
-            var options = configuration.GetSection(GatewayOptions.SECTIONNAME).Get<GatewayOptions>() ?? new GatewayOptions();
 
             services.AddSingleton<APIClientService>();
             return services;
