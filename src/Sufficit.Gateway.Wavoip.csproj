@@ -99,13 +99,13 @@
 	<!-- #endregion -->
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" Condition=" '$(TargetFramework)' == 'net10.0' " />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.1.*" Condition=" '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0' " />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.*" Condition=" '$(TargetFramework)' == 'net9.0' OR '$(TargetFramework)' == 'netstandard2.0' " />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Condition=" '$(TargetFramework)' != 'netstandard2.0' " />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.*" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
 		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="[3.*,4.0.0)" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
-		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="$(PkgVersion)" Condition=" '$(TargetFramework)' != 'netstandard2.0' " />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.*" Condition=" '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0' " />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.*" Condition=" '$(TargetFramework)' == 'net9.0' OR '$(TargetFramework)' == 'netstandard2.0' " />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.*" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
+		<!-- Overrides the obsolete transitive version required by MVC Core's
+		     compatibility asset. Modern targets use Microsoft.AspNetCore.App. -->
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(PkgVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="$(PkgVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="$(PkgVersion)" />
