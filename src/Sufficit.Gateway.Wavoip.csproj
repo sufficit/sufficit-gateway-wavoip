@@ -36,7 +36,7 @@
 		<PackageIconUrl>https://raw.githubusercontent.com/sufficit/sufficit-gateway-wavoip/main/icon.jpeg</PackageIconUrl>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageLicenseExpression>MIT-0</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.jpeg</PackageIcon>
 	</PropertyGroup>
