@@ -97,6 +97,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.*" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
 		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="[3.*,4.0.0)" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.*" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="[2.3.14,3.0.0)" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
 		<!-- Overrides the obsolete transitive version required by MVC Core's
 		     compatibility asset. Modern targets use Microsoft.AspNetCore.App. -->
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
